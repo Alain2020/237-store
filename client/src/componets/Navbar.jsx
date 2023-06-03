@@ -1,14 +1,15 @@
-import React from 'react';
-import { 
-  Box, 
-  Flex, 
-  HStack, 
-  Link, 
-  IconButton, 
-  Icon, 
-  Text, 
-  useDisclosure, 
-  useColorMode,
+import {
+  Box,
+  Flex,
+  HStack,
+  Link,
+  IconButton,
+  Icon,
+  Text,
+  useDisclosure,
+  Button,
+  Stack,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { Link as ReactLink } from 'react-router-dom';
 import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
@@ -16,7 +17,7 @@ import { GiTechnoHeart } from 'react-icons/gi';
 
 const links =[
     {linkName: 'Products', path: '/products'},
-    {linkName: 'ShoppingCart', path: '/cart'}
+    {linkName: 'ShoppingCart', path: '/cart'},
 ]
 
 const NAVLink = ({ path, children }) => (
@@ -52,7 +53,7 @@ const Navbar = () => {
               <Text fontWeight='extrabold'>S&J Store</Text>
             </Flex>
           </Link>
-          <HStack>
+          <HStack as='nav' spacing={4} display={{ base: 'nono', md: 'flex'}}>
             {links.map((link) => (
              <NavLink key={link.linkName} path={link.path}>
                 {link.linkName}
@@ -75,6 +76,7 @@ const Navbar = () => {
             as={ReactLink}
             to='/registration'
             m={2}
+            display={{ base: 'none', md: 'inline-flex' }}
             fontSize='sm'
             fontWeight={600}
             _hover={{ bg: 'orange.400' }}
@@ -92,6 +94,9 @@ const Navbar = () => {
                         {link.linkName}
                     </NavLink>
                 ))}
+                <NavLink key='sign up' path='/registration'>
+                  Sign Up
+                </NavLink>
             </Stack>
             </Box>
       ) : null}

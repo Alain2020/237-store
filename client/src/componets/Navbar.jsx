@@ -52,7 +52,23 @@ const Navbar = () => {
               <Text fontWeight='extrabold'>S&J Store</Text>
             </Flex>
           </Link>
+          <HStack>
+            {links.map((link) => (
+             <NavLink key={link.linkName} path={link.path}>
+                {link.linkName}
+                </NavLink>
+            ))}
+          </HStack>
         </HStack>
+        <Flex alignItems='center'>
+            <NavLink>
+                <icon
+                as={colorMode === 'light' ? MoonIcon : SunIcon}
+                alignSelf='center'
+                onClick={() => toggleColorMode()}
+                />
+            </NavLink>
+        </Flex>
       </Flex>
     </Box>
   );

@@ -68,6 +68,20 @@ const Navbar = () => {
                 onClick={() => toggleColorMode()}
                 />
             </NavLink>
+            <Button as={ReactLink} to='/login' p={2} fontSize='sm' fontWeight={400} variant='link'>
+                Sign In
+            </Button>
+            <Button
+            as={ReactLink}
+            to='/registration'
+            m={2}
+            fontSize='sm'
+            fontWeight={600}
+            _hover={{ bg: 'orange.400' }}
+            bg='orange.500'
+            color='white'>
+            Sign Up
+        </Button>
         </Flex>
       </Flex>
     </Box>

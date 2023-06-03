@@ -84,6 +84,17 @@ const Navbar = () => {
         </Button>
         </Flex>
       </Flex>
+      {isOpen ? (
+        <Box pb={4} display={{ md: 'none'}}>
+            <Stack as='nav' spacing={4}>
+                {link.map((link) =>( 
+                    <NavLink key={link.linkName} path={link.path}>
+                        {link.linkName}
+                    </NavLink>
+                ))}
+            </Stack>
+            </Box>
+      ) : null}
     </Box>
   );
 };
